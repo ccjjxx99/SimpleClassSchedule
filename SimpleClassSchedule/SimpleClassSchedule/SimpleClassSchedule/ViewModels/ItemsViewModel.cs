@@ -17,7 +17,7 @@ namespace SimpleClassSchedule.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "提醒";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
