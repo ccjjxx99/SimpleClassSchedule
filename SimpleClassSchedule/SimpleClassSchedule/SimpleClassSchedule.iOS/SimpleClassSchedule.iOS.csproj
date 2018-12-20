@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F8483DAE-A241-4D82-83A0-125D616683D1}</ProjectGuid>
+    <ProjectGuid>{6F68526E-3A2A-40BA-A50F-46F43B82950A}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -132,12 +132,12 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\SimpleClassSchedule\SimpleClassSchedule.csproj">
-      <Project>{6EEF9D12-E521-4438-8D8B-C7F926E03D0F}</Project>
+      <Project>{732C9634-3A71-43AE-BF66-DE047A02B8AC}</Project>
       <Name>SimpleClassSchedule</Name>
     </ProjectReference>
   </ItemGroup>
