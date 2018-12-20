@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">简约课程表</string>
-    <string name="action_settings">Settings</string>
+    <string name="insert_class">导入课程</string>
+    <string name="renew_class">更新课程</string>
+    <string name="out_image">导出图片</string>
+    <string name="add_smallpart">添加小部件</string>
+    <string name="action_settings">设置</string>
 </resources>
