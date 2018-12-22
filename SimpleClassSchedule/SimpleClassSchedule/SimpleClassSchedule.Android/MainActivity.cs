@@ -21,8 +21,6 @@ namespace SimpleClassSchedule.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             App.Init(new UserPreferencesAndroid());
-            App myApp = new App();
-
             LoadApplication(new App());
         }
     }

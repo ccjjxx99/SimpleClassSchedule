@@ -12,6 +12,7 @@
         <NavigationPage Title="课程表">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="drawable/table.png"/>
                     <On Platform="iOS" Value="tab_feed.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
@@ -23,6 +24,7 @@
         <NavigationPage Title="提醒">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="drawable/list.png"/>
                     <On Platform="iOS" Value="tab_about.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>

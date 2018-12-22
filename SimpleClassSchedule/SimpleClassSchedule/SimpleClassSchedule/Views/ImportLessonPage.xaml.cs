@@ -15,11 +15,10 @@ namespace SimpleClassSchedule.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ImportLessonPage : ContentPage
-	{
+    {
         CookieContainer container;
         //生成验证码图片
-
-
+        
         public void ReflshPicImage()
         {
             //获取验证码
@@ -52,6 +51,9 @@ namespace SimpleClassSchedule.Views
             request.ContentType = "application/x-www-form-urlencoded";
             request.Referer = "http://210.42.121.241/servlet/Login";
 
+            //保存账号密码
+            App.UserPreferences.SetString("pwd", pwdIn.Text);
+            App.UserPreferences.SetString("id", idIn.Text);
             //发现密码上传时，用md5加密，所以也要加密上传
             byte[] result = Encoding.Default.GetBytes(pwdIn.Text);//textBox2 密码
             MD5 md5 = new MD5CryptoServiceProvider();
@@ -124,13 +126,23 @@ namespace SimpleClassSchedule.Views
             string pattern = "checkBrowserType.*</script>";
             string s1 = new Regex(pattern, RegexOptions.Singleline).Match(studenTable).Value;
             App.UserPreferences.SetString("LessonInfo", s1);
-            table.Text = s1;
+            if (s1 != "")
+            {
+                DisplayAlert("登录成功", "请重新启动查看课程表", "确定");
+            }
+            else
+            {
+                DisplayAlert("登录失败", "请检查输入是否正确", "确定");
+                ReflshPicImage();
+            }
         }
 
 
         public ImportLessonPage ()
 		{
             InitializeComponent();
+            pwdIn.Text = App.UserPreferences.GetString("pwd");
+            idIn.Text = App.UserPreferences.GetString("id");
             ReflshPicImage();
         }
 	}

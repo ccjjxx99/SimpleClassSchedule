@@ -7,16 +7,16 @@
             <!-- Place new controls here -->
             <Label Text="账号" FontSize="Medium" />
             <Entry x:Name="idIn"
-            Text="2017302580168" FontSize="Small" />
+            Text="" FontSize="Small" />
             <Label Text="密码" FontSize="Medium" />
             <Editor x:Name="pwdIn"
-            Text="19991204" FontSize="Small" Margin="0" />
-            <Label Text="验证码" FontSize="Medium" />
-            <Editor x:Name="yzmIn"
             Text="" FontSize="Small" Margin="0" />
-            <Image x:Name="yzmImage" />
+            <Label Text="验证码" FontSize="Medium" />
+            <Entry x:Name="yzmIn"
+            Text="" FontSize="Small" Margin="0" />
+            <Image x:Name="yzmImage" HeightRequest="40"
+                   WidthRequest="100"/>
             <Button Text="登录" Clicked="OnTranslate" />
-            <Editor x:Name="table" Text="aaa"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -9,35 +9,41 @@ namespace SimpleClassSchedule.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutPage : ContentPage
     {
+        Grid g = new Grid();
+
         public AboutPage()
         {
             InitializeComponent();
-            Grid g = new Grid();
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(7, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
-            g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(3, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(5, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
-            g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
 
+
+            string s = App.UserPreferences.GetString("LessonInfo");
+            if(s != "")
             {
+                Content = g;
+
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(7, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
+                g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(3, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
                 //列标签
                 for (int i = 0; i < 8; i++)
                 {
@@ -75,7 +81,6 @@ namespace SimpleClassSchedule.Views
                 }
 
                 GridLesson gridLesson = new GridLesson();
-                string s = App.UserPreferences.GetString("LessonInfo");
                 if (s.Length != 0) ;
                 {
                     gridLesson.read(s);
@@ -90,16 +95,15 @@ namespace SimpleClassSchedule.Views
                         button.Padding = 0;
                         button.BorderRadius = 6;
                         button.FontSize = 11;
-                        button.BackgroundColor = Color.FromRgb(60,160,245);
+                        button.BackgroundColor = Color.FromRgb(60, 160, 245);
                         g.Children.Add(button);
                         Grid.SetRow(button, list[i].LessonTime.Start);
                         Grid.SetRowSpan(button, list[i].LessonTime.End - list[i].LessonTime.Start + 1);
                         Grid.SetColumn(button, (int)list[i].LessonTime.Day + 1);
-
                     }
+
                 }
             }
-            this.Content = g;
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

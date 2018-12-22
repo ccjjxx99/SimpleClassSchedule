@@ -10,8 +10,6 @@
         <StackLayout Spacing="20" Padding="15">
             <Label Text="标题:" FontSize="Medium" />
             <Entry Text="{Binding Item.Text}" FontSize="Small" />
-            <Label Text="时间：" FontSize="Medium"/>
-            <TimePicker x:Name="timePicker" Time="{Binding Item.Time}"></TimePicker>
             <Label Text="描述" FontSize="Medium" />
             <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
         </StackLayout>

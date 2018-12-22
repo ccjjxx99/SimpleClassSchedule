@@ -29,9 +29,15 @@ namespace SimpleClassSchedule.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
+            if (Item.Text != "")
+            {
+                MessagingCenter.Send(this, "AddItem", Item);
+                await Navigation.PopModalAsync();
+            }
+            else
+            {
+                await DisplayAlert("保存失败", "标题不能为空", "确定");
+            }
         }
     }
 }
