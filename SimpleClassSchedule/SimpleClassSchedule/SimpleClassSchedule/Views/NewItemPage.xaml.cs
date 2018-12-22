@@ -12,6 +12,7 @@ namespace SimpleClassSchedule.Views
     public partial class NewItemPage : ContentPage
     {
         public Item Item { get; set; }
+        
 
         public NewItemPage()
         {
@@ -19,15 +20,16 @@ namespace SimpleClassSchedule.Views
 
             Item = new Item
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Text = "",
+                Description = "",
+                Time = DateTime.Now
             };
-
             BindingContext = this;
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
+            
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }

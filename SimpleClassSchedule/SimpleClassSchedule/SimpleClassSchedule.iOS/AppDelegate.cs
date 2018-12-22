@@ -23,6 +23,10 @@ namespace SimpleClassSchedule.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            App.Init(new UserPreferencesiOS());
+            App myApp = new App();
+            
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

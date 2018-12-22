@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
-    class Lesson
+    public class Lesson
     {
         public string LessonName { set; get; }//课程名称
         public string LessonPosition { set; get; }//上课地点

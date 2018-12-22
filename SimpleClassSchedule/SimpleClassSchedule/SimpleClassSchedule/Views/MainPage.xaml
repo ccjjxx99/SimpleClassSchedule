@@ -2,7 +2,12 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:SimpleClassSchedule.Views"
-            x:Class="SimpleClassSchedule.Views.MainPage">
+            x:Class="SimpleClassSchedule.Views.MainPage"
+            BarBackgroundColor="#1976D2"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="#EEEEEE"
+            android:TabbedPage.BarSelectedItemColor="White">
     <TabbedPage.Children>
         <NavigationPage Title="课程表">
             <NavigationPage.Icon>

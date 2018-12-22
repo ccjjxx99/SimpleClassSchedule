@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
-    class Teacher
+    public class Teacher
     {
         public string Name { set; get; }//老师姓名
         public string Title { set; get; }//老师头衔

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
-    class LessonTime
+    public class LessonTime
     {
-        public enum Days { 星期日, 星期一, 星期二, 星期三, 星期四, 星期五, 星期六 };
+        public enum Days { 周日, 周一, 周二, 周三, 周四, 周五, 周六 };
         public Days Day { set; get; }//课程在周几
         public int Start { set; get; }//课程开始是第几节课
         public int End { set; get; }//课程结束是第几节课

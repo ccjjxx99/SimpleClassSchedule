@@ -4,110 +4,24 @@
              x:Class="SimpleClassSchedule.Views.AboutPage"
              xmlns:vm="clr-namespace:SimpleClassSchedule.ViewModels"
              Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="设置" Clicked="ToolbarItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatibile with Xamarin Live Player -->
-            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Primary">#1976D2</Color>
             <Color x:Key="Accent">#96d1ff</Color>
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-
-        </Grid.ColumnDefinitions>
-
-
-        <Label Text=""
-               Grid.Row="0" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="周日"
-               Grid.Row="0" Grid.Column="1"
-               TextColor="Blue"/>
-        <Label Text="周一"
-               Grid.Row="0" Grid.Column="2"
-               TextColor="Blue"/>
-        <Label Text="周二"
-               Grid.Row="0" Grid.Column="3"
-               TextColor="Blue" />
-        <Label Text="周三"
-               Grid.Row="0" Grid.Column="4"
-               TextColor="Blue"/>
-        <Label Text="周四"
-               Grid.Row="0" Grid.Column="5"
-               TextColor="Blue"/>
-        <Label Text="周五"
-               Grid.Row="0" Grid.Column="6"
-               TextColor="Blue"/>
-        <Label Text="周六"
-               Grid.Row="0" Grid.Column="7"
-               TextColor="Blue"/>
-        <Label Text="1"
-               Grid.Row="1" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="2"
-               Grid.Row="2" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="3"
-               Grid.Row="3" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="4"
-               Grid.Row="4" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="5"
-               Grid.Row="5" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="6"
-               Grid.Row="6" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="7"
-               Grid.Row="7" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="8"
-               Grid.Row="8" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="9"
-               Grid.Row="9" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="10"
-               Grid.Row="10" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="11"
-               Grid.Row="11" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="12"
-               Grid.Row="12" Grid.Column="0"
-               TextColor="Blue"/>
-        <Label Text="13"
-               Grid.Row="13" Grid.Column="0"
-               TextColor="Blue"/>
-
-    </Grid>
 </ContentPage>
