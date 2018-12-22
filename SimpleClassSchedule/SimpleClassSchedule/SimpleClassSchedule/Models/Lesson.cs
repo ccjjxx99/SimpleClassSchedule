@@ -54,9 +54,7 @@ namespace SimpleClassSchedule.Models
 
         public override string ToString()
         {
-            return LessonName + "\n" + LessonTeacher.ToString() + "\n学分："
-                + LessonCredits + "\n上课时间：" + LessonTime.ToString() + "\n上课地点："
-                + LessonPosition + "\n授课学院：" + Institute;
+            return LessonName + "\n" + LessonPosition;
         }
         public override bool Equals(object obj)
         {

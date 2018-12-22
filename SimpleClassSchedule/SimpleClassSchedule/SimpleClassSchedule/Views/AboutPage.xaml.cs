@@ -36,8 +36,8 @@ namespace SimpleClassSchedule.Views
                 g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
                 g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
                 g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(3, GridUnitType.Star) });
-                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
-                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(6, GridUnitType.Star) });
+                g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(8, GridUnitType.Star) });
                 g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
                 g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
                 g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(10, GridUnitType.Star) });
@@ -68,20 +68,25 @@ namespace SimpleClassSchedule.Views
                     }
                 }
 
+                string[] times = {"08:00","08:50","09:50","10:40","11:30","14:05","14:55",
+                    "15:45","16:40","17:30","18:30","19:20","21:30"};
+
                 //行标签
                 for (int i = 1; i <= 13; i++)
                 {
-                    Label label = new Label();
-                    label.Text = i.ToString();
-                    label.TextColor = Color.Black;
+                    Label label = new Label
+                    {
+                        Text = times[i - 1],
+                        FontSize = 8,
+                        TextColor = Color.Black
+                    };
                     g.Children.Add(label);
                     Grid.SetRow(label, i);
                     Grid.SetColumn(label, 0);
-
                 }
 
                 GridLesson gridLesson = new GridLesson();
-                if (s.Length != 0) ;
+                if (s.Length != 0)
                 {
                     gridLesson.read(s);
                     List<Lesson> list = gridLesson.lessons;
@@ -89,13 +94,15 @@ namespace SimpleClassSchedule.Views
                     //按钮
                     for (int i = 0; i < list.Count; i++)
                     {
-                        Button button = new Button();
-                        button.Text = list[i].LessonName;
-                        button.TextColor = Color.White;
-                        button.Padding = 0;
-                        button.BorderRadius = 6;
-                        button.FontSize = 11;
-                        button.BackgroundColor = Color.FromRgb(60, 160, 245);
+                        Button button = new Button
+                        {
+                            Text = list[i].ToString(),
+                            TextColor = Color.White,
+                            Padding = 0,
+                            BorderRadius = 6,
+                            FontSize = 10,
+                            BackgroundColor = Color.FromRgb(60, 160, 245)
+                        };
                         g.Children.Add(button);
                         Grid.SetRow(button, list[i].LessonTime.Start);
                         Grid.SetRowSpan(button, list[i].LessonTime.End - list[i].LessonTime.Start + 1);
