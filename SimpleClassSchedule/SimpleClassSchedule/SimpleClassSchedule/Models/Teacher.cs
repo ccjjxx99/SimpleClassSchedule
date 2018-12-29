@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
+    [Serializable]
     public class Teacher
     {
         public string Name { set; get; }//老师姓名
@@ -11,8 +12,11 @@ namespace SimpleClassSchedule.Models
 
         public override string ToString()
         {
-            return "任课老师：" + Name + " 教师职称：" + Title;
+            return Name + "-" + Title;
         }
+
+        public Teacher() { }
+
         public Teacher(string name)
         {
             Name = name;

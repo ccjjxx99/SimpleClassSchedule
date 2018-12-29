@@ -5,6 +5,13 @@
              xmlns:vm="clr-namespace:SimpleClassSchedule.ViewModels"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="" Clicked="WeekBtn_Clicked" x:Name="weekToolbar">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
         <ToolbarItem Text="设置" Clicked="ToolbarItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -12,6 +19,7 @@
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
+        
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:AboutViewModel />

@@ -4,11 +4,11 @@
              x:Class="SimpleClassSchedule.Views.ItemDetailPage"
              Title="{Binding Title}">
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="标题:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" FontSize="Small"/>
-        <Label Text="创建时间:" FontSize="Medium"/>
-        <Label Text="{Binding Item.Time}" FontSize="Small"/>
-        <Label Text="描述:" FontSize="Medium" />
+        <Label Text="标题:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding Item.ItemTitle}" FontSize="Small"/>
+        <Label Text="提醒时间:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding Item.AimTime}" FontSize="Small"/>
+        <Label Text="描述:" FontSize="Large" FontAttributes="Bold"/>
         <Label Text="{Binding Item.Description}" FontSize="Small"/>
     </StackLayout>
 </ContentPage>

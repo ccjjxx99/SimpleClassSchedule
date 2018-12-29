@@ -9,8 +9,8 @@
             <Entry x:Name="idIn"
             Text="" FontSize="Small" />
             <Label Text="密码" FontSize="Medium" />
-            <Editor x:Name="pwdIn"
-            Text="" FontSize="Small" Margin="0" />
+            <Entry x:Name="pwdIn"
+            Text="" FontSize="Small" Margin="0"  IsPassword="True"/>
             <Label Text="验证码" FontSize="Medium" />
             <Entry x:Name="yzmIn"
             Text="" FontSize="Small" Margin="0" />

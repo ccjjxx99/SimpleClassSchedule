@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
+    [Serializable]
     public class Lesson
     {
         public string LessonName { set; get; }//课程名称
@@ -12,6 +13,9 @@ namespace SimpleClassSchedule.Models
         public double LessonCredits { set; get; }//课程学分
         public Teacher LessonTeacher { set; get; }//授课教师
         public string Institute { set; get; } //开课学院
+
+        public Lesson() { }
+
         //构造函数，不需要的项置为null
         public Lesson(string name = null, LessonTime time = null, string position = null, double credits = -1, Teacher teacher = null, string institute = null)
         {

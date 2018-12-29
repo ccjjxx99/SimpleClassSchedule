@@ -5,13 +5,15 @@ namespace SimpleClassSchedule.Models
     public class Item
     {
         public string Id { get; set; }
-        public string Text { get; set; }
+        public string ItemTitle { get; set; }
+        public string AimTime { get; set; }
         public string Description { get; set; }
-        public DateTime Time { get; set; }
+
 
         public Item()
         {
-            Time = new DateTime();
+
+            Id = Guid.NewGuid().ToString();
         }
     }
 }

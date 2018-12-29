@@ -21,9 +21,7 @@ namespace SimpleClassSchedule.Views
             Items = new ObservableCollection<string>
             {
                 "导入课程表",
-                "导出为图片",
-                "创建窗口小部件",
-                "关于",
+                "关于"
             };
 			
 			MyListView.ItemsSource = Items;
@@ -36,6 +34,10 @@ namespace SimpleClassSchedule.Views
             else if (e.Item == Items[0])
             {
                 await Navigation.PushAsync(new ImportLessonPage(), true);
+            }
+            else if(e.Item==Items[1])
+            {
+                
             }
             
 

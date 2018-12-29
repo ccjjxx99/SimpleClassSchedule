@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -12,10 +13,9 @@ namespace SimpleClassSchedule.Models
     {
         public List<Lesson> lessons = new List<Lesson>();
 
-
         public void read(string s)
         {
-            string pattern0 = "lessonName.{800,1400}方便前台展示";
+            string pattern0 = "lessonName.{700,1500}方便前台展示";
             //将每个课程信息的部分分离出来
             Regex regex = new Regex(pattern0, RegexOptions.Singleline);
             MatchCollection mc = regex.Matches(s);
@@ -45,6 +45,31 @@ namespace SimpleClassSchedule.Models
             }
         }
         
+        /// <summary>
+        /// 将课表二进制序列化
+        /// </summary>
+        /// <param name="formatter"></param>
+        /// <param name="fileName"></param>
+        public void BinarySerialize(IFormatter formatter,string fileName)
+        {
+            FileStream fs = new FileStream(fileName, FileMode.Create);
+            formatter.Serialize(fs,lessons);
+            fs.Close();
+        }
+
+        /// <summary>
+        /// 将课表二进制反序列化
+        /// </summary>
+        /// <param name="formatter"></param>
+        /// <param name="fileName"></param>
+        public void BinaryDeserialize(IFormatter formatter,string fileName)
+        {
+            FileStream fs = new FileStream(fileName, FileMode.Create);
+            object obj = formatter.Deserialize(fs);
+            lessons = obj as List<Lesson>;
+            fs.Close();
+        }
+
         public void AddLesson(Lesson l)
         {
             lessons.Add(l);

@@ -26,7 +26,7 @@ namespace SimpleClassSchedule.Views
 
             var item = new Item
             {
-                Text = "",
+                ItemTitle = "",
                 Description = ""
             };
 

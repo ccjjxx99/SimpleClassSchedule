@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SimpleClassSchedule.Models
 {
+    [Serializable]
     public class LessonTime
     {
         public enum Days { 周日, 周一, 周二, 周三, 周四, 周五, 周六 };
@@ -13,8 +14,10 @@ namespace SimpleClassSchedule.Models
         public int StartWeek { set; get; }//课程开始是第几周
         public int EndWeek { set; get; }//课程结束是第几周
         public int Gap = 1;//课程间隔，默认每周一次课
-        //构造函数，默认1-17周
 
+        public LessonTime() { }
+
+        //构造函数，默认1-17周
         public LessonTime(Days day, int start, int end, int startWeek = 1, int endWeek = 17, int gap = 1)
         {
             Day = day;

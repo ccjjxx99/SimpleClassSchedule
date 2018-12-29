@@ -10,6 +10,9 @@ using Xamarin.Forms.Xaml;
 using SimpleClassSchedule.Models;
 using SimpleClassSchedule.Views;
 using SimpleClassSchedule.ViewModels;
+using System.IO;
+using System.Xml.Serialization;
+using System.Collections.ObjectModel;
 
 namespace SimpleClassSchedule.Views
 {
@@ -48,6 +51,19 @@ namespace SimpleClassSchedule.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        /// <summary>
+        /// 序列化保存提醒事件
+        /// </summary>
+        private void SaveAll(object sender,EventArgs e)
+        {
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Item.xml");
+            using (var writer = new StreamWriter(fileName))
+            {
+                var serializer = new XmlSerializer(typeof(ObservableCollection<Item>));
+                serializer.Serialize(writer, viewModel.Items);
+            }
         }
     }
 }

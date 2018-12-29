@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 using SimpleClassSchedule.Models;
 using SimpleClassSchedule.Views;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace SimpleClassSchedule.ViewModels
 {
@@ -19,6 +21,7 @@ namespace SimpleClassSchedule.ViewModels
         {
             Title = "提醒";
             Items = new ObservableCollection<Item>();
+            InitialzeItems();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
@@ -52,6 +55,19 @@ namespace SimpleClassSchedule.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private void InitialzeItems()
+        {
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Item.xml");
+            if (File.Exists(fileName))
+            {
+                using (var reader = new StreamReader(fileName))
+                {
+                    var serializer = new XmlSerializer(typeof(ObservableCollection<Item>));
+                    Items = (ObservableCollection<Item>)serializer.Deserialize(reader);//反序列化stream流
+                }
             }
         }
     }

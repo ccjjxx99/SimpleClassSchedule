@@ -9,7 +9,7 @@ namespace SimpleClassSchedule.ViewModels
         public Item Item { get; set; }
         public ItemDetailViewModel(Item item = null)
         {
-            Title = item?.Text;
+            Title = "日常详情";
             Item = item;
         }
     }

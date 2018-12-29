@@ -7,9 +7,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SimpleClassSchedule.Models;
+using System.Xml.Serialization;
 
 namespace SimpleClassSchedule.Views
 {
@@ -18,7 +20,8 @@ namespace SimpleClassSchedule.Views
     {
         CookieContainer container;
         //生成验证码图片
-        
+        public static string nameid;
+
         public void ReflshPicImage()
         {
             //获取验证码
@@ -54,6 +57,7 @@ namespace SimpleClassSchedule.Views
             //保存账号密码
             App.UserPreferences.SetString("pwd", pwdIn.Text);
             App.UserPreferences.SetString("id", idIn.Text);
+            nameid = idIn.Text;
             //发现密码上传时，用md5加密，所以也要加密上传
             byte[] result = Encoding.Default.GetBytes(pwdIn.Text);//textBox2 密码
             MD5 md5 = new MD5CryptoServiceProvider();
@@ -125,7 +129,12 @@ namespace SimpleClassSchedule.Views
             }
             string pattern = "checkBrowserType.*</script>";
             string s1 = new Regex(pattern, RegexOptions.Singleline).Match(studenTable).Value;
-            App.UserPreferences.SetString("LessonInfo", s1);
+
+            //App.UserPreferences.SetString("LessonInfo", s1);//保存字符串
+            GridLesson gridLesson = new GridLesson();
+            gridLesson.read(s1);
+            writeXml(gridLesson.lessons);
+
             if (s1 != "")
             {
                 DisplayAlert("登录成功", "请重新启动查看课程表", "确定");
@@ -145,5 +154,20 @@ namespace SimpleClassSchedule.Views
             idIn.Text = App.UserPreferences.GetString("id");
             ReflshPicImage();
         }
-	}
+
+        private void writeXml(List<Lesson>temp)
+        {
+            //#region 保存字符串到文件
+            //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LessonInfo.txt");
+            //File.WriteAllText(fileName,s1);
+            //#endregion
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Lessons.xml");
+            using (var writer = new StreamWriter(fileName))
+            {
+                var serializer = new XmlSerializer(typeof(List<Lesson>));
+                serializer.Serialize(writer,temp);
+            }
+        }
+    }
+
 }
