@@ -25,7 +25,7 @@ namespace SimpleClassSchedule.Views
         public void ReflshPicImage()
         {
             //获取验证码
-            String url = "http://210.42.121.241/servlet/GenImg";
+            string url = "http://210.42.121.241/servlet/GenImg";
             HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create(url);
             request1.Method = "GET";
             request1.Accept = "image/png, image/svg+xml, image/*; q=0.8, */*; q=0.5";
@@ -62,13 +62,11 @@ namespace SimpleClassSchedule.Views
             byte[] result = Encoding.Default.GetBytes(pwdIn.Text);//textBox2 密码
             MD5 md5 = new MD5CryptoServiceProvider();
             byte[] output = md5.ComputeHash(result);
-            String pwd = BitConverter.ToString(output).Replace("-", "").ToLower();
+            string pwd = BitConverter.ToString(output).Replace("-", "").ToLower();
 
 
             //根据抓包发现的表单结构传入数据
-            String postData = String.Format("id={0}&pwd={1}&xdvfb={2}", idIn.Text, pwd, yzmIn.Text);
-            //账号 textBox1
-            //验证码 textBox3
+            string postData = string.Format("id={0}&pwd={1}&xdvfb={2}", idIn.Text, pwd, yzmIn.Text);
             byte[] postdatabyte = Encoding.ASCII.GetBytes(postData);
             request.ContentLength = postdatabyte.Length;
             using (Stream stream = request.GetRequestStream())

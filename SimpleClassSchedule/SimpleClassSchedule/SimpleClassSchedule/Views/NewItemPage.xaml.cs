@@ -31,13 +31,19 @@ namespace SimpleClassSchedule.Views
         }
 
         async void Save_Clicked(object sender, EventArgs e)
-        { 
+        {
+            if (string.IsNullOrEmpty(Item.ItemTitle))
+            {
+                await DisplayAlert("错误", "标题不能为空", "确定");
+            }
+            else
+            {
+                DateTime AimTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).Add(_timePicker.Time);//获取目标时间
+                Item.AimTime = AimTime.ToString("t");
 
-            DateTime AimTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).Add(_timePicker.Time);//获取目标时间
-            Item.AimTime = AimTime.ToString("m") + " " + AimTime.ToString("t");
-
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();                
+                MessagingCenter.Send(this, "AddItem", Item);
+                await Navigation.PopModalAsync();
+            }
         }
     }
 }

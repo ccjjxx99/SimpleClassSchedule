@@ -20,14 +20,21 @@ namespace SimpleClassSchedule.Views
         List<Lesson> list;//保存所有课程
         List<Lesson> finalList;//当前周数课程
         Button[] buttons;
-        public static int currentWeek = 7;
-        
+        public static int currentWeek = 1;
+
 
         public AboutPage()
         {
             InitializeComponent();
+            try
+            {
+                currentWeek = int.Parse(App.UserPreferences.GetString("week"));
+            }
+            catch { }
             weekToolbar.Text = "第" + currentWeek.ToString() + "周";
             Content = g;
+
+            
 
             g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(7, GridUnitType.Star) });
             g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(10, GridUnitType.Star) });
@@ -203,7 +210,8 @@ namespace SimpleClassSchedule.Views
                 weeks[i] = (i + 1).ToString();
             }
             var action = await DisplayActionSheet("更改当前周数", "cancel", null, weeks);
-            string s = (string)action;//获取返回的字符串
+            string s = action;//获取返回的字符串
+            App.UserPreferences.SetString("week", s);
 
             if (s != "cancel")
             {

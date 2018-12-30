@@ -8,11 +8,10 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="时间:" FontSize="Medium" />
-            <TimePicker x:Name="_timePicker"
-                    Format=""/>
             <Label Text="标题" FontSize="Medium" />
             <Editor Text="{Binding Item.ItemTitle}" FontSize="Small" Margin="0" />
+            <Label Text="时间:" FontSize="Medium" />
+            <TimePicker x:Name="_timePicker" Format="t"/>
             <Label Text="描述" FontSize="Medium" />
             <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
         </StackLayout>
