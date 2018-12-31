@@ -81,7 +81,7 @@ namespace SimpleClassSchedule.Models
             {
                 lessons.RemoveAt(i);
             }
-            catch (Exception e)
+            catch
             {
                 //提醒用户删除失败
             }

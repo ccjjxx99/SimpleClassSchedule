@@ -211,10 +211,11 @@ namespace SimpleClassSchedule.Views
             }
             var action = await DisplayActionSheet("更改当前周数", "cancel", null, weeks);
             string s = action;//获取返回的字符串
-            App.UserPreferences.SetString("week", s);
+            
 
             if (s != "cancel")
             {
+                App.UserPreferences.SetString("week", s);
                 foreach (Button btn in buttons)
                     g.Children.Remove(btn);
                 currentWeek = int.Parse(s);//更改当前周数
